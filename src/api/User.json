@@ -1,0 +1,49 @@
+{
+  "User": [
+    {
+      "firstName": "Ganeshamaaa",
+      "lastName": "SAHUsdfgh",
+      "email": "82@gmail.com",
+      "gender": "male",
+      "picture": "https://randomuser.me/api/portraits/med/men/27.jpg",
+      "document": null,
+      "id": "6bk-VOP"
+    },
+    {
+      "firstName": "Ganesh",
+      "lastName": "SAHU",
+      "email": "ga@gmail.com",
+      "gender": "male",
+      "picture": "https://randomuser.me/api/portraits/med/men/78.jpg",
+      "document": null,
+      "id": "ks4tsJ9"
+    },
+    {
+      "firstName": "anjaliaa",
+      "lastName": "kumari",
+      "email": "anj@ghost.com",
+      "gender": "Female",
+      "picture": "https://randomuser.me/api/portraits/med/women/24.jpg",
+      "document": null,
+      "id": "5r-PBgC"
+    },
+    {
+      "firstName": "ankita",
+      "lastName": "kumari",
+      "email": "ankita@ggmail.com",
+      "gender": "Female",
+      "picture": "https://randomuser.me/api/portraits/med/women/85.jpg",
+      "document": null,
+      "id": "nRaDSUJ"
+    },
+    {
+      "firstName": "A",
+      "lastName": "kkumar",
+      "email": "A@hot.com",
+      "gender": "male",
+      "picture": "https://randomuser.me/api/portraits/med/men/67.jpg",
+      "document": null,
+      "id": "M9bvTTB"
+    }
+  ]
+}
