@@ -1,8 +1,8 @@
 import React from 'react'
-import { useActionData,Form } from 'react-router-dom'
+import { Form } from 'react-router-dom'
 
 const EditForm = ({Udata}) => {
-    const data=useActionData()
+    
 
   return (
     <div className='mt-4 flex items-center justify-center flex-col'>
@@ -29,7 +29,7 @@ const EditForm = ({Udata}) => {
         </div>
         <button className=' px-4 pt-2 pb-2 rounded-md m-4 font-bold border all:unset border-green-600 py-2 text-sm text-green-600 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-600 hover:bg-green-300 hover:text-white transition-all delay-400 ease-in-out '>Submit</button>
 
-        {data && data.error && <p>{data.error}</p>}
+        
       </Form>
     </div>
     </div>

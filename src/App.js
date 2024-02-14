@@ -12,6 +12,7 @@ import NewUser, {NewUserAction as newaction} from './Layout/UserLayout/NewUser';
 import User,{ UserLoder} from './Layout/UserLayout/User.js';
 import UserDetails, { UserDetailLoder ,action as deleteaction} from './Layout/UserLayout/UserDetails';
 import UserEdit,{UserPatchAction as loader} from './Layout/UserLayout/UserEdit';
+import Getnotify, { actionnotification } from './pages/Getnotify.js';
 // import { UserPatchAction as loder } from './Layout/UserLayout/UserEdit.js';
 // import ShowDetails from './Layout/UserLayout/ShowDetails';
 
@@ -44,6 +45,7 @@ const router=createBrowserRouter(
         {/* ///curdlayout end */}
 
       <Route path='/file' element={<File/>} />
+      <Route path='/notify' element={<Getnotify/>} action={actionnotification} />
       <Route path='*' element={<Error/>} />
 
 

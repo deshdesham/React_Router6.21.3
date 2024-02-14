@@ -12,8 +12,15 @@ export default NewUser;
 
 export const NewUserAction= async({request})=>{
   const data=await request.formData()
+  
+  const email=data.get("email")
+  const firstName=data.get("firstName")
+  const lastName=data.get("lastName")
+
   const getgender=data.get("gender")
   
+
+
   let x=Math.floor(Math.random() * 90 + 10);
   
     let menimage = `https://randomuser.me/api/portraits/med/men/${x}.jpg`;
@@ -24,10 +31,11 @@ export const NewUserAction= async({request})=>{
   console.log("gender",getgender);
     // console.log("setimage",fakeimage);
 
+
   const createData={
-    firstName:data.get("firstName"),
-    lastName:data.get("lastName"),
-    email:data.get("email"),
+    firstName:firstName,
+    lastName:lastName,
+    email:email,
     gender:getgender,
     picture:getgender === 'male' ? menimage : womenimage,
     document:data.get("document")

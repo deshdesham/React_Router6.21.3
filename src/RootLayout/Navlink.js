@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react'
+import Notified from '../pages/Notified';
 
 
 // 'use client'
@@ -21,6 +22,10 @@ const menuItems = [
   {
     name: 'File',
     to: '/file',
+  },
+  {
+    name: 'Notify',
+    to: '/notify',
   },
   
 ]
@@ -68,12 +73,7 @@ const menuItems = [
         </div>
         <div className="hidden lg:block">
 
-        <button
-                  type="button"
-                  className="mt-4 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                  >
-                  Login
-           </button>
+        <Notified/>
 
         </div>
         <div className="lg:hidden">

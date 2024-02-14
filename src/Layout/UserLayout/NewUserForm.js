@@ -2,6 +2,7 @@ import React from 'react'
 import { Form } from 'react-router-dom';
 
 const NewUserForm = () => {
+
     // const inputRef=useRef(null)
     // const imageRef=useRef(null)
   
@@ -32,15 +33,18 @@ const NewUserForm = () => {
         <div className='form-group flex flex-col mt-2 mb-2'>
             <label className='mb-2 '>FirstName:</label>
             <input type='text' name='firstName' className='border rounded-md'/>
+            
         </div>
         <div className='form-group flex flex-col mt-2 mb-2'>
             <label className='mb-2 '>LastName:</label>
             <input type='text' name='lastName' className='border rounded-md'/>
+            
         </div>
         <div className='form-group flex flex-col mt-2 mb-2'>
             <label className='mb-2'>Email:</label>
             <input type='text' name='email' className='border rounded-md'/>
         </div>
+            
         <div className='form-group gap-3 flex items-center justify-center mt-2 mb-2'>
             <label>Gender:</label>
             <select name='gender' className='border'>
@@ -70,6 +74,7 @@ const NewUserForm = () => {
 }
 
 export default NewUserForm;
+
 
 
 
