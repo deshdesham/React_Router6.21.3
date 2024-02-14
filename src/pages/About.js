@@ -2,7 +2,7 @@ import React, { useState, Suspense } from 'react';
 import { Await, useSearchParams } from 'react-router-dom';
 
 const About = () => {
-  const [params, setParams] = useSearchParams();
+  const [params, setParams] = useSearchParams()
   const [data, setData] = useState(fetch(`http://localhost:5000/User?${params.toString()}`).then(response => response.json()));
 
   const handleChange = (e) => {
