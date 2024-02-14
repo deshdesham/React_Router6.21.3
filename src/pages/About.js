@@ -9,11 +9,11 @@ const About = () => {
     },
     {
       "id":2,
-      "name":"desham"
+      "name":"amit"
     },
     {
       "id":3,
-      "name":"desham"
+      "name":"anita"
     }
   ]
   console.log("user",userlist);

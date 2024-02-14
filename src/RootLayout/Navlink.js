@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react'
 
+
 // 'use client'
 
 const menuItems = [
@@ -16,6 +17,10 @@ const menuItems = [
   {
     name: 'User',
     to: '/user',
+  },
+  {
+    name: 'File',
+    to: '/file',
   },
   
 ]
@@ -62,12 +67,14 @@ const menuItems = [
           </ul>
         </div>
         <div className="hidden lg:block">
-          <button
-            type="button"
-            className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:red/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
-            Login
-          </button>
+
+        <button
+                  type="button"
+                  className="mt-4 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
+                  Login
+           </button>
+
         </div>
         <div className="lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
@@ -108,28 +115,30 @@ const menuItems = [
                 <div className="mt-6">
                   <nav className="grid gap-y-4">
                     {menuItems.map((item) => (
-                      <a
+                      <NavLink
                         key={item.name}
-                        href={item.href}
+                        to={item.to}
+                        onClick={()=>setIsMenuOpen(!isMenuOpen)}
                         className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50"
                       >
                         <span className="ml-3 text-base font-medium text-gray-900">
                           {item.name}
                         </span>
-                      </a>
+                      </NavLink>
                     ))}
                   </nav>
                 </div>
                 <button
                   type="button"
                   className="mt-4 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
+                  >
                   Login
                 </button>
               </div>
             </div>
           </div>
         )}
+        
       </div>
     </div>
   )

@@ -1,63 +1,42 @@
 
 import React from 'react'
-import { NavLink, useLoaderData} from 'react-router-dom';
-
+import { NavLink, Outlet, useRouteLoaderData} from 'react-router-dom';
 
 const User = () => {
-//   const userlist=[
-//     {
-//       "id":1,
-//       "name":"desh"
-//     },
-//     {
-//       "id":2,
-//       "name":"desham"
-//     },
-//     {
-//       "id":3,
-//       "name":"desham"
-//     }
-//   ]
-//   console.log("user",userlist);
-const Users=useLoaderData()
-console.log(Users.data);
+  const data = useRouteLoaderData("root");
 
-return (
-    <>
-    {
-      Users.data.map((useritem)=>(
-        <li key={useritem.id} className=' list-none w-full flex justify-center '>
-          <NavLink to={useritem.id} className=" border-red mt-2 px-3 py-1 bg-black text-white  rounded-md "  >{useritem.firstName}</NavLink>
-        </li>
-      ))
-    }
-
-    </>
-  )
-}
+  return (
+    <div className='border-gray-500 md:w-full grid grid-cols-4 gap-3'>
+      {data.map((item) => (
+        <div key={item.id}>
+          <div className='rounded-md mx-auto mt-6 mx-3 border rounded-md grid justify-center text-center backdrop-blur-md bg-slate-200'>
+            <img src={item.picture} className='w-[200px] mx-auto mb-2' alt={`${item.firstName} ${item.lastName}`} />
+            <NavLink to={item.id} key={item.id} className=" font-bold text-teal-600 ">{item.firstName}</NavLink>
+          </div>
+        </div>
+      ))}
+      <Outlet />
+    </div>
+  );
+};
 
 export default User;
 
+export const UserLoder = async () => {
+  const apiUrl = "http://localhost:5000/User";
 
-export const UserLoder=async()=>{
-    const appId="65b7e0773709b4162e6d2104"
-    const apiUrl = "https://dummyapi.io/data/v1/user?limit=10";
+  try {
+    const res = await fetch(apiUrl);
 
-    
-    try {
-        const res = await fetch(apiUrl, {
-            headers: {
-                "app-id": appId,  // Fix the typo here
-            },
-        });
-
-        if (!res.ok) {
-            throw new Error("Couldn't fetch data");
-        }
-
-        return res.json();
-    } catch (error) {
-        console.error("Error:", error);
-        throw error; // Rethrow the error so that the calling code can handle it
+    if (!res.ok) {
+      throw new Error("Couldn't fetch data");
     }
-    }
+
+    return res.json();
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+};
+
+
