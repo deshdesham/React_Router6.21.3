@@ -17,6 +17,28 @@ export const NewUserAction= async({request})=>{
   const firstName=data.get("firstName")
   const lastName=data.get("lastName")
 
+  const errors={};
+  const maxLength=10;
+  const minLength=3;
+
+  if (typeof email !== "string" || !email.includes("@")) {
+    errors.email ="That doesn't look like an email address";
+  }
+
+  if (typeof firstName !== "string" || firstName.length < minLength || firstName.length > maxLength) {
+    errors.firstName = "Invalid first name. It should be a string and its length should be between " + minLength + " and " + maxLength;
+  }
+
+  if (typeof lastName !== "string" || lastName.length < minLength || lastName.length > maxLength) {
+    errors.lastName = "Invalid first name. It should be a string and its length should be between " + minLength + " and " + maxLength;
+  }
+
+
+  if (Object.keys(errors).length) {
+    return errors;
+  }
+
+
   const getgender=data.get("gender")
   
 
