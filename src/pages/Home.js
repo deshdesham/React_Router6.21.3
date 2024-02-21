@@ -1,6 +1,22 @@
 import React from 'react'
-
+import { ScrollRestoration,Link } from 'react-router-dom'
 const Home = () => {
+ 
+const Scroll=()=>{
+  return(
+    <ScrollRestoration
+  getKey={(location, matches) => {
+    const paths = ["/home", "/about"];
+    return paths.includes(location.about)
+      ? // home and notifications restore by pathname
+        location.about
+      : // everything else by location like the browser
+        location.key;
+  }}
+/>
+  )
+}
+
   return (
     <div>
 
@@ -56,6 +72,8 @@ const Home = () => {
             alt=""
           />
         </div>
+        
+        <Link onClick={Scroll} >Top</Link>
 
     </div>
   )

@@ -15,7 +15,7 @@ const User = () => {
           </div>
         </div>
       ))}
-      <Outlet />
+      {/* <Outlet /> */}
     </div>
   );
 };

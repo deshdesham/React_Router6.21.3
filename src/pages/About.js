@@ -42,6 +42,7 @@ const About = () => {
           ))}
         </Await>
       </Suspense>
+      
     </div>
   );
 };
