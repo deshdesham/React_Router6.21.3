@@ -12,7 +12,7 @@ const Error=()=> {
           Page not found
         </h1>
         <p className="mt-4 text-base leading-7 text-gray-600">
-          Sorry, we couldn&apos:t find the page you&apos;re looking for.
+          Sorry, PAGE NOTE we couldn&apos:t find the page you&apos;re looking for.
         </p>
         <div className="mt-4 flex items-center justify-center gap-x-3">
           <button

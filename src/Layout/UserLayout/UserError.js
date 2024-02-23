@@ -7,12 +7,12 @@ const UserError=() =>{
   return (
     <div className="py-10">
       <div className="text-center">
-        <p className="text-base font-semibold text-black">404</p>
-        <p className="mt-2 text-3xl font-bold tracking-tight text-black sm:text-5xl">
+        <div className="text-base font-semibold text-black">404</div>
+        <div className="mt-2 text-3xl font-bold tracking-tight text-black sm:text-5xl">
         <h1>Could not Fetch Data! plese try leter.</h1>
-        </p>
+        </div>
         <p className="mt-4 text-base leading-7 text-gray-600">
-          Sorry, we couldn&apos:t find the page you&apos;re looking for.
+          Sorry,CURD APP, we couldn&apos:t find the page you&apos;re looking for.
         </p>
         <div className="mt-4 flex items-center justify-center gap-x-3">
           <button

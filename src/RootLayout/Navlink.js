@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate, useRouteLoaderData } from 'react-router-dom';
 import { Menu, X } from 'lucide-react'
 import Notified from '../pages/Notified';
 
@@ -31,12 +31,19 @@ const menuItems = [
 ]
 
  const Navlink=() =>{
+  const data=useRouteLoaderData("authid")
+  // console.log(data);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
-
+  const navigate=useNavigate()
+  const token=localStorage.getItem("Authorization")
+  const Logout=()=>{
+    localStorage.removeItem("Authorization")
+    return navigate("/about")
+  }
   return (
     <div className="relative w-full bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
@@ -60,6 +67,8 @@ const menuItems = [
         <div className="hidden lg:block">
           <ul className="inline-flex space-x-8">
             {menuItems.map((item) => (
+              // (token || item.name !== 'File' && item.name!=="Notify") && 
+              (token || item.name !== 'File') && 
               <li key={item.name}>
                 <NavLink
                   to={item.to}
@@ -72,10 +81,18 @@ const menuItems = [
           </ul>
         </div>
         <div className="hidden lg:block">
-
         <Notified/>
-
         </div>
+          {!token &&
+          <NavLink className='border px-4 py-2 bg-green-300 text-green-600 font-bold rounded-md ' to="auth?mode=login" >Login</NavLink>
+        }
+        {token &&
+          <div className='inline-flex'>
+          
+          <button className='border ml-auto mx-1 px-4 py-2 bg-green-300 text-green-600 font-bold rounded-md' onClick={Logout} >Logout</button>
+         <img src={data.image} alt={data.image} className=' border w-[10%]  border-green-400 justify-center items-center p-2 rounded-full'/>
+          </div>
+          }
         <div className="lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
         </div>
@@ -145,3 +162,17 @@ const menuItems = [
 }
 
 export default Navlink;
+
+
+export const authloder=async()=>{
+  const token=localStorage.getItem("Authorization")
+  const req=await fetch("https://dummyjson.com/auth/me",{
+    method:"GET",
+    headers:{
+      'Authorization':'Bearer '+token
+    }
+  })
+  const res=await req.json()
+  // console.log("AUTH",res);
+  return res;
+}

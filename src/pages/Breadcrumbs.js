@@ -10,7 +10,7 @@ const Breadcrumbs = () => {
     <ol>
         {
             crumbs.map((item,key)=>(
-                <li key={key}>{item}</li>
+                <li key={key} className='border items-center inline-flex px-2 rounded-r-full '>{item}</li>
             ))
         }
     </ol>
