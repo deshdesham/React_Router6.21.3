@@ -17,6 +17,7 @@ import Login, { AuthLogin} from './Auth/Login';
 import AutherrElmt from './Auth/AutherrElmt';
 import {authloder} from "./RootLayout/Navlink.js"
 import { Protect } from './Auth/Checkloader.js';
+import FileError from './pages/FileError.js';
 
 
 // import { UserPatchAction as loder } from './Layout/UserLayout/UserEdit.js';
@@ -51,7 +52,7 @@ const router=createBrowserRouter(
       </Route>
         {/* ///curdlayout end */}
 
-      <Route path='/file' element={<Protect Component={File}/>} handle={{crumb: () => <Link to="/file">file</Link>}} />
+      <Route path='/file' element={<File/>}  handle={{crumb: () => <Link to="/file">file</Link>}} />
       <Route path='/notify' element={<Protect Component={Getnotify}/>} action={actionnotification} handle={{crumb: () => <Link to="/notify">notify</Link>}}  />
 
       <Route path='/auth' element={<Login/>} action={AuthLogin} errorElement={<AutherrElmt/>} handle={{crumb: () => <Link to="/login">login</Link>}}/>
